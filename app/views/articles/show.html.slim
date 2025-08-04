@@ -1,0 +1,14 @@
+- if notice.present?
+  p.notice.py-1.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-md.inline-block
+    = notice
+
+.flex.flex-wrap.gap-4.m-1
+  div= link_to "Back to articles", articles_path, class: "btn-sm-green m-1 p-0.5"
+
+  - if Current.user.owner?(@article) || Current.user.is_manager?
+    div= link_to "Edit this article", edit_article_path(@article), class: "btn-sm-orange m-1 p-0.5"  
+    div= button_to "Destroy this article", @article, method: :delete, class: "btn-sm-red m-1 p-0.5"
+div.w-7/8.ml-8.md:ml-18.md:w-3/4
+
+  div = render partial:"content"
+

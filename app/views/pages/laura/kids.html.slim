@@ -1,0 +1,35 @@
+div
+  div class="container marked bg-white mx-auto w-3/4 mt-8 px-5 border"
+    = render partial:'pages/laura/navbar'
+
+    h6 Our Kids
+
+    p While I must have hundreds of photo, I’ll just show some basics starting with some wedding pictures.
+
+    p Steve Ronald was born 4/27/65 in Victorville CA. He married Cindy in 1998 and she has 3 children (Kevin-22, Regina-20 and Michael-15)
+
+    p Lori Ann was born 2/25/67 in Victorville CA. She married Lew Shew in 9/2/95 and they have one child Sharrah Alexandra-9
+
+    p James Vincent was born 2/6/69 in Pittsburgh PA. He married Janice (Wathsmith) on 8/20/94 and they have three children James Jr-14, Anne Chapple (Chappel)-12, and Andrew Russell (Drew)-7
+
+    p Using Lori’s wedding picture to show all the kids and spouses (except Cindy). Left to right. My step-father Joseph Hrobak. My Mother Wanda Hrobak. Me and Jan. The kids - Lori and Lee, James and Janice, and Steve.
+
+    .grid.grid-cols-2.gap-4
+      div
+        a[href="/pages/laura/pick?id=James_JaniceAlex.jpg"]
+          img[ src="/images/laura/James_JaniceAlex.jpg" class="border p-1"]
+        span.italic James and Janice Wedding
+
+      div
+        a[href="/pages/laura/pick?id=Lori_lee_wedding.jpg"]
+          img[ src="/images/laura/Lori_lee_wedding.jpg" class="border p-1"]
+        span.italic Lori and Lee Wedding
+      div
+        a[href="/pages/laura/pick?id=Lori_LeeShew.jpg"]
+          img[ src="/images/laura/Lori_LeeShew.jpg" class="border p-1"]
+        span.italic Lori and Lee
+      div
+        a[href="/pages/laura/pick?id=SteveR_Cindy_Alex.jpg"]
+          img[ src="/images/laura/SteveR_Cindy_Alex.jpg" class="border p-1"]
+        span.italic  Steve and Cindy
+

@@ -1,0 +1,19 @@
+div.bg-white.p-2.m-2.min-h-dvh
+  = tag.div(flash[:alert], style: "color:red",class:"font-bold text-xl") if flash[:alert]
+
+  div Dashboard#show
+  div  Find me in app/views/dashboard/show.html.slim
+  / div = Current.session.user.inspect
+  div.bg-lime-200.text-red-600.p-2
+    p 
+      span Time Now - 
+      span= Time.now
+    p.m-2 Will start of with a couple of paragraph
+    p.p-2 One more for spacing
+
+  div = Current.session.inspect
+  div = "COOKIE #{cookies.signed[:session_id]}"
+  div = "ROOT #{root_url}"
+  div = "DASHBOARD #{dashboard_url}"
+  - key = "#{Current.session.id}_expires_at"
+  div = "EXPIRE #{session[key]}"

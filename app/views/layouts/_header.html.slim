@@ -1,0 +1,46 @@
+.grid.md:grid-cols-12.text-white.bg-nav.font-bold
+  div.col-span-3.pl-2
+    .why
+      a.asu href=("{{ root_url }}/about/stupid.html") 
+      div[ class="text-asu-gold"]  The personal blog of Steve Alex
+      div[ class="text-asu-gold"]  Gadsden, Alabama
+
+
+  div.col-span-6.p-1
+    .tickler.serif.text-lg
+      | Everyone knows engineers can’t write! I&nbsp;
+      span style=("border-bottom:dotted 1px #96FF77")  is
+      | &nbsp;an&nbsp;
+      span style=("border-bottom:dotted 1px red")  engineeer! 
+      span But...
+    h2.text-3xl.text-asu-gold.font-bold.ml-4
+      | I Wish I Could Write!
+      a href="/"
+
+  div.col-span-3.float-right
+
+    - if Current.session
+        = button_to icon('fa fa-sign-out',"Logout"), session_path, method: :delete, form:{data: { turbo_confirm: 'Are you sure?', turbo_method:'delete' }}, class:" inline-block text-white pr-4 float-right"
+        span.pr-5.float-right = Current.session.user.full_name
+
+- if Current.session
+  div.sticky-menu.w-full.print:hidden
+    div.flex.flex-wrap.bg-black.font-bold.text-white.text-xl.noprint.py-2.pl-2
+      - if Current.session
+        div.px-4.hover:bg-white.hover:text-black = link_to "Dashboard", dashboard_path
+        div.px-4.hover:bg-white.hover:text-black = link_to "Users", users_path
+        div.px-4.hover:bg-white.hover:text-black = link_to "Articles", articles_path
+        div.px-4.hover:bg-white.hover:text-black = link_to "Home", root_path
+      - else
+        div.px-4.hover:bg-white.hover:text-black = link_to "Home", root_path
+
+      div
+        - flash.each do |name, msg|
+          - if msg.is_a?(String)
+            .flash-box.w3-animate-right[
+              data-controller="flashIt" 
+              data-flashIt-target="flashBox" 
+              class="#{name.to_s == 'notice' ? 'p-0 text-green-500 bg-green-100 px-4' : 'p-0 text-red-500 bg-red-100 px-4'}"
+            ]
+              = content_tag :span, content_tag(:strong,msg)
+

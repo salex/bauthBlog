@@ -1,0 +1,39 @@
+div.grid.grid-cols-12.gap-0
+  div.col-span-3 = render partial: "layouts/sidebar"
+  div.col-span-9.bg-white.min-height-90vh
+    div.-m-1 = render partial: "nav_about"
+    div.scroll.w-full
+
+      h3.text-center.font-bold.text-lg.text-green-700 Yea, we're going to try this writing thing one more time!
+      - ago = distance_between_dates_in_years_months('1944-10-17'.to_date)
+      .marked
+      / p = link_to 'Wanda', page_path('wanda/show')
+      p
+        | I realy don't like to write - but I need to document some stuff, even if it's just for me or my family. This is about the 7th iteration of IWICW theme. Can't remember all of them, but I've gone from roll your own to Jekyll then Octopress and back to Jekyll. This lastest version abandons Jekyll and uses a Rails Application with one simple model (Aritcle)
+      p
+        span I call myself a
+
+        strong
+          i &nbsp;RetiredGeek&nbsp;
+
+        span = "in that I've been dealing with Logic/Code almost my entire adult life (Thats over 60 years! making me about #{ago[:years]} years and #{ago[:dmonths]} months old!). I really don't have to do it anymore, but… My current life revolves around four intertwined areas listed below. What intertwines them is that most of them deal with Logic and Code. That results in posts in the Categories listed in the left sidebar and About stuff in the top menu bar."
+      .grid.grid-cols-2.md:grid-cols-4.gap-8
+        .area
+          h5.text-center Home/Personal
+          .callout.malt.fs09 You do have to do some stuff around the house. Didn't collect a half garage full of tools and toys for nothing. I have the Money Pit to deal with and my 30 year old RX7. Then there's Wife, Kids and Grandkids.
+        .area
+          h5.text-center Golf
+          .callout.warning.fs09 Yes I play golf whenever I can. But then I've been managing golf group scores for about 30 years. Guess what I'm still doing? Think I'm on the 7th iteration of my web based management system.
+        .area
+          h5.text-center Volunteer
+          p.callout.alert.fs09  You're always told not to volunteer for anything. I did and now I run VFW Post 8600. I also enjoy cooking so it's off to the Way of the Cross Soup Kitchen a few time a month. This also includes a few web sites
+        .area
+          h5.text-center Thoughts
+          .callout.success.fs09
+            p Politics, Religion and other stuff that will get you in trouble if you're not careful (I'm not!).
+            p Don't think I have any code or web sites in this area! But then most sites came from thinking.
+
+      / p.m-3.p-2 I'm going to consentrate on the Rails work I've done in these areas over the last few years in this iteration. Then maybe I won't do anything - I don't have to!
+      h4 Again, Enjoy!
+
+      / / div = inspect_session

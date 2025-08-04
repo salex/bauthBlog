@@ -1,0 +1,32 @@
+div.grid.grid-cols-12.gap-0
+  div.col-span-3 = render partial: "layouts/sidebar"
+  div.col-span-9.bg-white.min-height-90vh
+    div.-m-1 = render partial: "nav_about"
+    div.scroll.w-full
+
+        / = render partial: "nav_about"
+        div 
+          = @nav_bar
+          article.marked
+            h3 But its more than just me me me
+            img.inline-block alt="" src="/janet_steve_2007.jpg" style=("padding-right:10px; border: none; height: 346px; width: 251px; float:left;  ") 
+            p
+              |I grew up in Russellton PA, a small coal mining town about 20 miles north of Pittsburgh. Spent 22 years in the Air Force. About the first 10 years as an aircraft mechanic(F4/C/D/E). The Air Force then sent me to school at Arizona State University to become and engineer - but then they made me a navigator. After a few years of throwing stuff out of the back of a C-130, I became a Functional Analyst on a new software project. That started my geek career where I ended up as the IT Manager for a small Alabama State agency,
+              a.maroon href="http://aidt.edu"  AIDT
+            p
+              | My wife Jan and I have been married since 1965. That&#x2019;s us to the left about 6 years ago. We have 3 children (Steve, Lori and James) and seven grandchildren. James Jr, Chappell, Sarrah and Drew are pictured below. I&#x2019;ll have to dig out some pictures for Kevin, Regina and Michael, Steve&#x2019;s step-children later. I currently reside in Gadsden Alabama and live in
+              a.maroon href="/articles?category=moneypit"  The Money Pit
+
+        div.clearfix
+          h3[style="float:none:"] A Few Pictures
+          hr
+          div.grid.grid-cols-5.gap-2
+            img.w-full alt="" src="/images/iwicw/shapeimage_1.jpg" 
+            img.w-full alt="" src="/images/iwicw/shapeimage_2.jpg" 
+            img.w-full alt="" src="/images/iwicw/shapeimage_3.jpg" 
+            img.w-full alt="" src="/images/iwicw/shapeimage_4.jpg" 
+            img.w-full alt="" src="/images/iwicw/shapeimage_5.jpg"
+
+          img alt="" src="/images/iwicw/shapeimage_6.jpg" 
+          p If you want any more details, there are some links in the above button bar
+

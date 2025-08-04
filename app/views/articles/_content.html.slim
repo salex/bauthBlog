@@ -1,0 +1,17 @@
+/ all articele content rendered HERE
+div
+  - if @article.content[0..10].include?('.slim')
+    div.py-2
+      h3.text-xl.font-bold = "Title: #{@article.title}"
+      i = @article.date.to_fs(:long)
+      - markup = MarkupSlim.new(@article.content)
+      = render inline: markup.results, type: :slim
+  - else
+    div.border.p-2[data-controller="displayMarked"]
+      div.hidden = text_area_tag('x',@article.content, data:{displayMarked_target:"markup"})
+
+      h3.text-xl.font-bold = @article.title
+      i = @article.date.to_fs(:long)
+      div.marked[data-displayMarked-target='viewer']
+
+

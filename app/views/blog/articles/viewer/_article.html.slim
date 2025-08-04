@@ -1,0 +1,27 @@
+div[class="w-56" id="#{dom_id article}"]
+  div
+    span.font-large.font-bold
+    - if article.title.size > 27
+      - title = article.title[0..27]+'...'
+    - else
+      - title = article.title
+
+    = link_to title, blog_articles_viewer_path(article),class:" text-green-700 text-xl hover:text-blue-700 font-bold"
+
+  / div.font-medium.font-bold
+  /   = link_to  article.title[0..20]+'...', blog_articles_viewer_path(article.id),class:"m-1 text-green-700 text-xl hover:text-blue-700 font-bold"
+  div.ml-2.mb-2
+    .flex.flex-wrap
+      div
+        span.font-small.font-bold.m-1 Date:
+        = article.date
+      div
+        span.font-small.font-bold.m-1 Author:
+        = article.author
+      div
+        span.font-small.font-bold.m-1 Category:
+        = article.category
+
+    div.m-1.italic
+      = article.content.split[0..4].join(' ').gsub(/\.[^\s]+/,'').gsub('#','')
+      span &#8230;

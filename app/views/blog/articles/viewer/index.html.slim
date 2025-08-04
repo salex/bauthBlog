@@ -1,0 +1,7 @@
+div.grid.grid-cols-12.gap-0
+  div.col-span-3 = render partial: "layouts/sidebar"
+  div.col-span-9.bg-white.min-height-90vh.p-2
+    div.scroll.w-full
+
+      div.flex.gap-4.flex-wrap
+        = render partial: "article", collection: @articles

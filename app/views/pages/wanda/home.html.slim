@@ -1,0 +1,55 @@
+.marked.p-2[style="background:url(/images/wanda/bg_pattern.jpg);"]
+  = link_to 'View ALL Picture', "all/index.html", class: "ml-2 rounded-lg p-2 bg-blue-100 inline-block font-medium"
+  = link_to 'Exit Pages', root_path, class: "ml-2 rounded-lg p-2 bg-green-100 inline-block font-medium float-right"
+
+
+  / a href="all/index.html"  View ALL Pictures
+
+  h2 align="center" 
+    | Wanda's 90th Birthday Celebration
+  div.marked align="left" style="width:70%;margin:auto" 
+    p On June 8th, 2013 we had a birthday celebration for Wanda Hrobak.
+
+    p I had put up a few pictures right after, but I received many others and have updated the pictures.
+
+    p I've added an Attendee List (with a link to picture(s)) and added names of those who are in the picture.
+
+    p There are some duplicates, but decided to include most pictures. It seems that the stunning willow tree got quite a few clicks!
+/ p
+hr
+.marked
+  h5.text-center Attendees
+div
+  div class="float-left inline-block" 
+    img alt="Wanda" src="/images/wanda/1.jpg" width="200" class="border p-1" /
+  ul style="float:left; margin-left:3rem;" 
+    - keys = @attendees.keys
+    - size = keys.size 
+    - half = size / 2  
+    - 0.upto(half-1) do |a|
+      - x = @attendees[keys[a]]
+      li
+        = link_to x[:name], "show?id=#{a}", class:"text-blue-700 font-bold hover:text-green-700"
+ 
+  ul style="float:left; margin-left:3rem;" 
+    - keys = @attendees.keys    
+    - (half).upto(size-1) do |a|
+      - x = @attendees[keys[a]]
+      li 
+        = link_to x[:name], "show?id=#{a}", class:"text-blue-700 font-bold hover:text-green-700"
+
+
+hr[style="clear:both;"]
+  
+div
+  div class="float-left p-1 m-2  inline-block" 
+    p The cake
+    img alt=("The Cake")  src="/images/wanda/4.jpg" width="360" class="border p-1" /
+  div class="float-left p-1 m-2 " 
+    p.text-blue-700 The Invitation
+    img alt=("The Invitation")  src="/images/wanda/2.jpg" width="360" class="border p-1"/
+
+  div class="float-left p-1 m-2  inline-block" 
+    p View
+    img alt=("The View")  src="/images/wanda/3.jpg" width="360" class="border p-1"/
+

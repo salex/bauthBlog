@@ -1,0 +1,37 @@
+= form_with(model: @user) do |form|
+  - if @user.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      ul
+        - @user.errors.each do |error|
+          li = error.full_message
+  .flex.flex-wrap.gap-8
+    div
+      div
+        = form.label :email_address, class: "font-bold text-lg"
+        = form.text_field :email_address, class: "p-1 border block"
+      div
+        = form.label :full_name, class: "font-bold text-lg"
+        = form.text_field :full_name, class: "p-1 border block"
+    - if Current.user.is_manager?
+      / only top 2 can set role
+      div
+        label.font-bold Role
+        - Can.roles.each do |role|
+          div
+            = form.radio_button(:role, role, checked: @user.role == role)
+            span.ml-2.font-bold= role.humanize
+    div
+      div.italic
+        p Leave blank or change
+
+      div
+        = form.label :password, class: "font-bold text-lg"
+        = form.password_field :password, class: "p-1 border block"
+
+      div
+        = form.label :password_confirmation, class: "font-bold text-lg"
+        = form.password_field :password_confirmation, class: "p-1 border block"
+
+  div[class="btn-submit"]
+    = form.submit

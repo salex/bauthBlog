@@ -1,0 +1,10 @@
+- navbar = [['About',blog_about_index_path],
+  ['Me',blog_about_me_path],
+  ['Background',blog_about_background_path],
+  ['Golf',blog_about_golf_path],
+  ['Family',blog_about_family_path],
+  ['Geekdome',blog_about_geekdome_path]]
+
+div.bg-nav
+  -navbar.each do |i|
+    = link_to i[0],i[1], class:"inline-block m-1 p-1 rounded-md sbutton text-nav"

@@ -1,0 +1,26 @@
+div.grid.grid-cols-12.gap-0
+  div.col-span-3 = render partial: "layouts/sidebar"
+  div.col-span-9.bg-white.min-height-90vh.p-2
+    - if flash[:alert]
+      div.flex.gap-16.p-1
+        = tag.div(flash[:alert], style: "color:red",class:"font-bold text-xl") 
+        div
+          = button_to icon('fa fa-sign-in',"SignIn"), new_session_path, class:" inline-block text-white btn-sqr-blue text-white p-1 float-right"
+
+    .marked
+      /[style="min-height:90vh;"]
+      h5.btn-sqr-blue.rounded.text-center.p-1 Welcome to stevealex.us, my personal blog.
+
+      p.font-bold
+        span What's this 
+        span[class="title text-title-color text-xl font-bold " ] "I Wish I Could Write!" 
+        span subtitle?
+      p 
+        span To remind me that, while I've been successful, I needed to improve my writing skills. This is a rewrite of a site that used the domain 
+        span.italic iwishicouldwrite.com,  
+        span built with Jekyll. I had 'stuff' I wanted to say but was hesitate to say it. You can read more about that in the About pages (if interested!). 
+      p This site uses the 'Ruby on Rails' framework, something I've used since Version 0.9. It's somewhat of a Kludge in that it mixes Rails with some 'Static html' pages from the Jekyll version. It's a mixture of Code, Thoughts, and History and a few other interests.
+
+      p Most of the posts from the Jekyll version are still included, many are outdated, but then it's history - what I was doing and thinking about 10-15 or so years ago.
+      h6 Enjoy!
+

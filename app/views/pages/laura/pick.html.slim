@@ -1,0 +1,13 @@
+.marked.mb-4.p-2[style="background:url(/images/wanda/bg_pattern.jpg);"]
+
+  h3 align="center" 
+    | Picked Picture
+  = link_to 'Return to Home Page', "/pages/laura/home", class: "ml-2 rounded-lg p-2 bg-blue-100 inline-block font-medium"
+  = link_to '< Back Page', 'javascript:history.back()', class: "ml-2 rounded p-2 bg-green-100 inline-block font-medium hover:bg-green-200"
+
+  / = link_to "Return to Home Page", "/pages/wanda/home"
+
+
+div[ align="center"]  
+  img[ src="/images/laura/#{params[:id]}" class="p-2 border "]
+  / br = @pages[params[:id].to_s][:attendees].join(', ')

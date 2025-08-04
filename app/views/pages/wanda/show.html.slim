@@ -1,0 +1,17 @@
+- id = params[:id].to_i
+- keys = @attendees.keys
+- pkey = keys[id]
+- person = @attendees[pkey]
+.marked.mb-4.p-2[style="background:url(/images/wanda/bg_pattern.jpg);"]
+  h4 =  "Attendee Pictures for #{person[:name]}"
+  = link_to 'Return to Home Page', "/pages/wanda/home", class: "ml-2 rounded-lg p-2 bg-blue-100 inline-block font-medium"
+  = link_to '< Back Page', 'javascript:history.back()', class: "ml-2 rounded p-2 bg-green-100 inline-block font-medium hover:bg-green-200"
+
+.grid.grid-cols-2.gap-4
+  - person[:pics].each do |i|
+    div
+      a[href="/pages/wanda/all/pick?id=#{i}"]
+        img[ src="/images/wanda/#{i}.jpg" class="border p-1"]
+      br = @pages[i.to_s][:attendees].join(', ')
+
+

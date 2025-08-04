@@ -1,0 +1,20 @@
+div.w-full.p-2
+  p style="color: green" = notice
+
+  h1.font-bold.text-2xl Users
+  - if can?('new',"user")
+    = link_to link_to icon('fas fa-plus-square', "New User"), 
+      new_user_path,class:"btn-sm-blue"
+  hr.border-1.border-blue-500.my-1
+
+  #users
+    - @users.each do |user|
+      .grid.grid-cols-2
+        div == render user
+        div
+          = link_to icon('fas fa-eye',"Show User"), user,class:"btn-sm-green mr-4"
+          - if Current.user.is_manager? || Current.user.id == user.id
+            = link_to icon('fas fa-edit',"Edit User"),  edit_user_path(user),class:"btn-sm-orange mr-4" if can?('edit',"user")
+
+      hr.border-1.border-blue-500.my-1
+

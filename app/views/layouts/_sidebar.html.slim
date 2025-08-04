@@ -1,0 +1,30 @@
+div[class="bg-nav text-white ml-2"]
+  / div[ class="text-asu-told"]  The personal blog of Steve Ale
+
+  .grid.grid-cols-2
+    = link_to( "Home", root_path, class:"block mr-1 mb-1 button asu-maroon sbutton text-nav")
+
+    = link_to( "About This Site", blog_about_index_path, class:"block mr-1 mb-1 button asu-maroon sbutton text-nav")
+  hr
+  h5.font-bold Articles Categories
+  .grid.grid-cols-2.md:grid-cols-3
+   = link_to( 'All', blog_articles_viewer_index_path, class:"inline-block mr-1 mb-1 button asu-maroon sbutton text-nav")
+   - for item in Article::CATEGORIES do
+      = link_to( item, blog_articles_viewer_index_path(category:item), class:"inline-block mr-1 mb-1 button asu-maroon sbutton text-nav w3-hover-shadow")
+  hr
+  h5.font-bold Recent Posts
+  -  Article.order("date DESC").limit(5).each do |a|
+   div
+     strong = link_to a.title[0..30], blog_articles_viewer_path(a),class:"text-green-200 hover:text-blue-200"
+
+     div.ml-2
+       i = a.date.to_fs(:long)
+
+  / hr
+  / <script type="text/javascript" src="https://www.brainyquote.com/link/quotebr.js"></script>
+  / <small>
+  /   <i>
+  /     <a href="https://www.brainyquote.com/quotes_of_the_day.html" target="_blank" rel="nofollow">more Quotes</a>
+  /   </i>
+  / </small>
+

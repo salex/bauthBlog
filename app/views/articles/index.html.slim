@@ -1,0 +1,46 @@
+- content_for :title, "Articles"
+.w-full.p-2
+  - if notice.present?
+    p#notice.py-2.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-md.inline-block
+      = notice
+  .flex.gap-4
+    h1.font-bold.text-2xl
+      | Articles
+    = link_to "New article", new_article_path, class: "btn-sm-blue h-fit" if can?('create','article')
+    div.flex.flex-wrap.gap-2
+      = link_to( "all", articles_path, class:"  btn-tiny  button asu-maroon sbutton text-nav w3-hover-shadow w-22 h-fit")
+      = link_to( "mine", articles_path(category:'my'), class:"  btn-tiny  button asu-maroon sbutton text-nav w3-hover-shadow w-22 h-fit")
+
+      - for item in Article::CATEGORIES do
+         = link_to( item, articles_path(category:item), class:"   btn-tiny  button asu-maroon sbutton text-nav w3-hover-shadow w-22 h-fit")
+
+  #articles.min-w-full.min-height-full
+    - if @articles.any?
+      div.scroll.w-full
+
+        div.flex.gap-4.flex-wrap
+          - @articles.each do |article|
+            div.w-74
+              div
+                span.font-large.font-bold
+                - if article.title.size > 27
+                  - title = article.title[0..27]+'...'
+                - else
+                  - title = article.title
+
+                = link_to title, article_path(article),class:" text-green-700 text-xl hover:text-blue-700 font-bold"
+              div.ml-2
+                div
+                  span.font-medium.font-bold.m-1 Date:
+                  = article.date
+                div
+                  span.font-medium.font-bold.m-1 Author:
+                  = article.author
+
+                div
+                  span.font-medium.font-bold.m-1 Category:
+                  = article.category
+                div.m-1.italic.text-sm
+                  = article.content.split[0..6].join(' ').gsub(/\.[^\s]+/,'').gsub('#','')
+                  span &#8230;
+

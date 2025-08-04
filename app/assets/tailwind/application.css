@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-header: #400000;
+  --color-subtitle: #FFB310; 
+  --color-title: #FFBF00;
+  --color-nav: #600;
+  --color-asu-maroon: #990033;
+  --color-asu-gold: #FFB310;
+  --color-steeler-gold: #FFBF00;
+  --color-gold-metalic: #D4AF37;
+  --color-malty: #f4d8d7;
+  --color-malt: #871B15;
+  --color-bdefault: #fefbff;
+  --color-sidebar: #fff2f2;
+  --color-bbtn: #0d47a1;
+  
+}
+
+@layer components{
+  .btn-tiny{
+    @apply py-0 px-1 inline-block rounded hover:opacity-70 font-bold border;
+  }
+  .btn-sm{
+     @apply py-0.5 px-1.5 inline-block rounded hover:opacity-70 font-bold border-2;
+  }
+  .btn-md{
+    @apply py-1 px-2 inline-block rounded hover:opacity-70 font-bold border-2;
+  }
+  .btn-lg{
+    @apply py-1.5 px-2.5 inline-block rounded hover:opacity-70 font-bold border-2;
+  }
+
+  .btn-tiny-blue{
+     @apply py-0 px-1 inline-block rounded hover:opacity-70 font-bold border bg-blue-300 border-blue-600;
+  }
+  .btn-sm-blue{
+     @apply py-1 px-1.5 inline-block rounded hover:opacity-70 font-bold border-2 bg-blue-300 border-blue-600;
+  }
+  .btn-md-blue{
+     @apply py-1.5 px-2 inline-block rounded hover:opacity-70 font-bold border-2 bg-blue-300 border-blue-600;
+  }
+  .btn-lg-blue{
+    @apply py-1.75 px-2.5 inline-block rounded hover:opacity-70 font-bold text-lg border-2 bg-blue-300 border-blue-600;
+  }
+
+  .btn-tiny-green{
+     @apply py-0 px-1 inline-block rounded hover:opacity-70 font-bold border bg-green-300 border-green-600;
+  }
+  .btn-sm-green{
+     @apply py-1 px-1.5 inline-block rounded hover:opacity-70 font-bold border-2 bg-green-300 border-green-600;
+  }
+  .btn-md-green{
+     @apply py-1.5 px-2 inline-block rounded hover:opacity-70 font-bold border-2 bg-green-300 border-green-600;
+  }
+  .btn-lg-green{
+    @apply py-1.75 px-2.5 inline-block rounded hover:opacity-70 font-bold text-lg border-2 bg-green-300 border-green-600;
+  }
+
+  .btn-tiny-orange{
+     @apply py-0 px-1 inline-block rounded hover:opacity-70 font-bold border bg-orange-300 border-orange-600;
+  }
+  .btn-sm-orange{
+     @apply py-1 px-1.5 inline-block rounded hover:opacity-70 font-bold border-2 bg-orange-300 border-orange-600;
+  }
+  .btn-md-orange{
+     @apply py-1.5 px-2 inline-block rounded hover:opacity-70 font-bold border-2 bg-orange-300 border-orange-600;
+  }
+  .btn-lg-orange{
+    @apply py-1.75 px-2.5 inline-block rounded hover:opacity-70 font-bold text-lg border-2 bg-orange-300 border-orange-600;
+  }
+
+  .btn-tiny-red{
+     @apply py-0 px-1 inline-block rounded hover:opacity-70 font-bold border bg-red-400 border-red-600;
+  }
+  .btn-sm-red{
+     @apply py-1 px-1.5 inline-block rounded hover:opacity-70 font-bold border-2 bg-red-400 border-red-600;
+  }
+  .btn-md-red{
+     @apply py-1.5 px-2 inline-block rounded hover:opacity-70 font-bold border-2 bg-red-400 border-red-600;
+  }
+  .btn-lg-red{
+    @apply py-1.75 px-2.5 inline-block rounded hover:opacity-70 font-bold text-lg border-2 bg-red-400 border-red-600;
+  }
+
+
+  .btn-submit{
+    @apply mt-2 rounded-md py-3 px-5 border-2 border-blue-400 bg-blue-700 text-white font-bold hover:opacity-80 inline-block;
+  }
+}
