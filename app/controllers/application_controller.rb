@@ -10,23 +10,23 @@ class ApplicationController < ActionController::Base
       if session[key].present? && session[key] < Time.now
         terminate_session
         reset_session
-        redirect_to root_path, flash: {alert: "Your session has expired!"}
+        redirect_to root_path, flash: { alert: "Your session has expired!" }
       else
         session[key] = Time.now + 2.hours
       end
     end
   end
 
-  def can?(action,model)
-    Current.user && Current.user.can?(action,model)
+  def can?(action, model)
+    Current.user && Current.user.can?(action, model)
   end
   helper_method :can?
 
-  def flashit(msg=nil)
+  def flashit(msg = nil)
     if msg
       redirect_to dashboard_path, alert: msg
     else
-      redirect_to dashboard_path, alert:"I'm sorry, Dave. I'm afraid I can't do that!"
+      redirect_to dashboard_path, alert: "I'm sorry, Dave. I'm afraid I can't do that!"
     end
   end
   helper_method
