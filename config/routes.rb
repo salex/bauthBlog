@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   namespace :blog do
     namespace :about do
-      get 'index'
-      get 'background'
-      get 'family'
-      get 'golf'
-      get 'geekdome'
-      get 'me'
-      get 'wanda'
+      get "index"
+      get "background"
+      get "family"
+      get "golf"
+      get "geekdome"
+      get "me"
+      get "wanda"
     end
     namespace :articles do
       resources :viewer, only: [:index, :show] 
@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   end
 
   # semi private links
-  get 'wanda', to: 'pages#wanda'
-  get 'laura', to: 'pages#laura'
-  get 'tom', to: 'pages#tomconcept'
+  get "wanda", to: "pages#wanda"
+  get "laura", to: "pages#laura"
+  get "tom", to: "pages#tomconcept"
   get "/pages/*page" => "pages#show"
   get "pages" => "pages#show"
 

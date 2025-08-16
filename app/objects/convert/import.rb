@@ -8,7 +8,7 @@ class Convert::Import
   end
 
   def import_users
-    json = File.read(Rails.root.join('app','objects','json','users.json'))
+    json = File.read(Rails.root.join("app", "objects", "json", "users.json"))
     records = JSON.parse(json)
     # puts records[0]
     # return
@@ -26,7 +26,7 @@ class Convert::Import
   end
 
   def import_articles
-    json = File.read(Rails.root.join('app','objects','json','articles.json'))
+    json = File.read(Rails.root.join("app", "objects", "json", "articles.json"))
     records = JSON.parse(json)
     # puts records[0]
     # return
@@ -44,7 +44,7 @@ class Convert::Import
   end
 
   def import_sessions
-    json = File.read(Rails.root.join('app','objects','json','sessions.json'))
+    json = File.read(Rails.root.join("app", "objects", "json", "sessions.json"))
     records = JSON.parse(json)
     # puts records[0]
     # return
@@ -60,6 +60,4 @@ class Convert::Import
     puts "Sessions imported or created"
     # ActiveRecord::Base.connection.reset_pk_sequence!('sessions')
   end
-
-
 end

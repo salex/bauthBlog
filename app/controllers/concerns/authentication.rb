@@ -56,6 +56,5 @@ module Authentication
       Current.session.destroy if Current.session
       cookies.delete(:session_id)
       # cookies.delete('expires_at-79')
-
     end
 end

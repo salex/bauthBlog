@@ -4,8 +4,7 @@ module ApplicationHelper
     if text.blank?
       return tag.span(icon_tag)
     end
-    text_tag = tag.span ' ' + text
-    return tag.span(icon_tag + text_tag)
+    text_tag = tag.span " " + text
+    tag.span(icon_tag + text_tag)
   end
-
 end

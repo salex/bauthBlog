@@ -3,24 +3,24 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    flashit unless can?(:index,:user)
+    flashit unless can?(:index, :user)
     @users = User.all
   end
 
   # GET /users/1 or /users/1.json
   def show
-    flashit unless can?(:show,:user)
+    flashit unless can?(:show, :user)
   end
 
   # GET /users/new
   def new
-    flashit unless can?(:new,:user)
+    flashit unless can?(:new, :user)
     @user = User.new
   end
 
   # GET /users/1/edit
   def edit
-    flashit unless can?(:edit,:user)
+    flashit unless can?(:edit, :user)
   end
 
   # POST /users or /users.json
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
-    flashit unless can?(:destroy,:user)
+    flashit unless can?(:destroy, :user)
     @user.destroy!
 
     respond_to do |format|

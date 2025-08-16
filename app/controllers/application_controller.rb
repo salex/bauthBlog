@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include Authentication
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
-  before_action :session_expiry
+  # before_action :session_expiry
 
   def session_expiry
     if Current.session
@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
       if session[key].present? && session[key] < Time.now
         terminate_session
         reset_session
-        redirect_to root_path, flash: { alert: "Your session has expired!" }
+        redirect_to login_path, flash: { alert: "Your session has expired!" }
       else
-        session[key] = Time.now + 2.hours
+        session[key] = Time.now + 45.minutes
       end
     end
   end
@@ -30,5 +30,4 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method
-
 end

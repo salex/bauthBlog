@@ -3,42 +3,40 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
-    flashit unless can?(:index,:article)
+    flashit unless can?(:index, :article)
     # @articles = Current.user.articles #Article.all
     if params[:category].present?
-      if params[:category] == 'my'
-        @articles = Article.where(user_id:Current.user).order(:date).reverse
-      elsif params[:category] == 'all'
+      if params[:category] == "my"
+        @articles = Article.where(user_id: Current.user).order(:date).reverse
+      elsif params[:category] == "all"
         @articles = Article.all.order(:date).reverse
       else
         @category = params[:category]
-        @articles = Article.where(category:params[:category]).order(:date).reverse
+        @articles = Article.where(category: params[:category]).order(:date).reverse
         if @articles.blank?
-          redirect_to articles_path, alert:"No article found with catagory: #{@category}"
+          redirect_to articles_path, alert: "No article found with catagory: #{@category}"
         end
       end
 
     else
       @articles = Article.all.order(:date).reverse
     end
-    
-
   end
 
   # GET /articles/1 or /articles/1.json
   def show
-    flashit unless can?(:show,:article)
+    flashit unless can?(:show, :article)
   end
 
   # GET /articles/new
   def new
-    flashit unless can?(:new,:article) 
-    @article = Article.new(user_id:Current.user.id)
+    flashit unless can?(:new, :article)
+    @article = Article.new(user_id: Current.user.id)
   end
 
   # GET /articles/1/edit
   def edit
-    flashit unless (can?(:edit,:article) && Current.user.owner?(@article)) || Current.user.is_manager?
+    flashit unless (can?(:edit, :article) && Current.user.owner?(@article)) || Current.user.is_manager?
   end
 
   # POST /articles or /articles.json
@@ -71,7 +69,7 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/1 or /articles/1.json
   def destroy
-    flashit unless can?(:destroy,:article) && Current.user.owner?(@article)
+    flashit unless can?(:destroy, :article) && Current.user.owner?(@article)
     @article.destroy!
     respond_to do |format|
       format.html { redirect_to articles_path, status: :see_other, notice: "Article was successfully destroyed." }

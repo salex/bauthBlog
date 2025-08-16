@@ -22,8 +22,8 @@ class MarkupSlim
 
   def fenced(text)
     @lines = text.split("\n")
-    spres = [] #lines starting spre div
-    lines.each_with_index do |ln,idx|
+    spres = [] # lines starting spre div
+    lines.each_with_index do |ln, idx|
       # spre no longer used
       if ln.include?("s```") || ln.include?("e```")
         if ln.include?("s```")
@@ -38,13 +38,13 @@ class MarkupSlim
     # start with first and last line id
     # if there are 2 there a 4 element put in pairs with slice
     # puts "WHAT IN PRES #{spres}"
-    blocks = spres.each_slice(2).to_a #lines starting spre div
+    blocks = spres.each_slice(2).to_a # lines starting spre div
     # puts "WHAT IN blocks #{blocks}"
-    make_fence_blocks(blocks,lines)
+    make_fence_blocks(blocks, lines)
     merge_blocks(blocks)
   end
 
-  def make_fence_blocks(blocks,lines)
+  def make_fence_blocks(blocks, lines)
     head1 = "div[data-controller='displayMarked']"
     head2 = "  pre.hidden[data-displayMarked-target='markup'] ```"
     tail =  "  div[data-displayMarked-target='viewer']"
@@ -54,11 +54,11 @@ class MarkupSlim
       @markdown_blocks << range.to_a
       spaces =  lines[b[0]].length - lines[b[0]].lstrip.length
       lang = lines[b[0]].strip.split(".")[1]
-      lang = 'ruby' if lang.nil?
-      h1 = head1.dup.prepend(" " * spaces) 
-      h2 = head2.dup.prepend(" " * spaces) << lang 
+      lang = "ruby" if lang.nil?
+      h1 = head1.dup.prepend(" " * spaces)
+      h2 = head2.dup.prepend(" " * spaces) << lang
       blocktail = tail.dup.prepend(" " * spaces)
-      thisblock = [h1,h2]
+      thisblock = [ h1, h2 ]
       spaces += 2
       rarr = range.to_a
       # don't need first or last element (spre and epre tags)
@@ -75,17 +75,17 @@ class MarkupSlim
 
   def merge_blocks(blocks)
     first = 0
-    line_size = lines.size - 1 #attribute
+    line_size = lines.size - 1 # attribute
     new_slim_lines = ""
     blocks.each do |b|
       if b[0] > first
-        @text_blocks << [first,b[0] - 1]
+        @text_blocks << [ first, b[0] - 1 ]
         first = b[1]+1
       end
     end
     if first < line_size
       # text after last block
-      text_blocks <<[first,line_size]
+      text_blocks <<[ first, line_size ]
     end
     all = (blocks + text_blocks).sort_by { |e| e[0] }
     block_types = [] # either t for text or c for code
@@ -93,9 +93,9 @@ class MarkupSlim
     block_starts = blocks.pluck(0)
     all_starts.each do |i|
       if block_starts.include?(i)
-        block_types << 'c'
+        block_types << "c"
       else
-        block_types << 't'
+        block_types << "t"
       end
     end
     # puts "ALL #{all_starts} B #{block_starts} T #{block_types}"
@@ -104,10 +104,10 @@ class MarkupSlim
     code_blocks = (0..10).to_a # limit to 11 code blocks
     block_types.each do |type|
       # puts "C = #{type}"
-      if type == 't'
+      if type == "t"
         tb = text_blocks[text_idx]
         tb[0].upto(tb[1]) do |i|
-          new_slim_lines << lines[i]+"\n" 
+          new_slim_lines << lines[i]+"\n"
         end
         text_idx += 1
       else
@@ -118,10 +118,6 @@ class MarkupSlim
       # puts "NEW TEXT #{new_slim_lines[0..50]}"
     end
     @results = new_slim_lines
-    @html = Slim::Template.new{ @results }.render.html_safe
-
+    @html = Slim::Template.new { @results }.render.html_safe
   end
-
-
 end
-

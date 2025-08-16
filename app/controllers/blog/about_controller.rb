@@ -1,5 +1,4 @@
 class Blog::AboutController < ApplicationController
-  
   layout "blog"
   allow_unauthenticated_access
 
@@ -18,6 +17,4 @@ class Blog::AboutController < ApplicationController
 
   def geekdome
   end
-
 end
-

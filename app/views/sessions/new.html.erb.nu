@@ -2,7 +2,7 @@
 
   <div class="mx-auto md:w-2/3 ">
     <% if alert = flash[:alert] %>
-      <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+      <p class="py-2 px-3 bg-red-100 mb-5 text-red-500 text-xl rounded-lg inline-block" id="alert"><%= alert %></p>
     <% end %>
 
     <% if notice = flash[:notice] %>

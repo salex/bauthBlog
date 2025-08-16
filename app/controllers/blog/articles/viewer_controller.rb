@@ -2,15 +2,15 @@ class Blog::Articles::ViewerController < ApplicationController
   layout "blog"
 
   before_action :set_article, only: %i[ show ]
-  before_action :valid, only:%i[ show]
-  allow_unauthenticated_access(only: [:index, :show])
+  before_action :valid, only: %i[ show]
+  allow_unauthenticated_access(only: [ :index, :show ])
 
   def index
     if params[:category].present?
       @category = params[:category]
-      @articles = Article.where(category:params[:category]).order(:date).reverse
+      @articles = Article.where(category: params[:category]).order(:date).reverse
       if @articles.blank?
-        redirect_to blog_path, alert:"No article found with category: #{@category}"
+        redirect_to blog_path, alert: "No article found with category: #{@category}"
       end
     else
       @articles = Article.all.order(:date).reverse
@@ -24,8 +24,8 @@ class Blog::Articles::ViewerController < ApplicationController
   private
 
   def valid
-    spre = @article.content.scan('s```')
-    epre = @article.content.scan('e```')
+    spre = @article.content.scan("s```")
+    epre = @article.content.scan("e```")
     if spre.size != epre.size
       begin
         raise StandardError
@@ -43,6 +43,5 @@ class Blog::Articles::ViewerController < ApplicationController
         redirect_to root_path, alert: "Article not found..."
     end
   end
-
 end
 # end
