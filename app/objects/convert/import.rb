@@ -2,9 +2,9 @@ class Convert::Import
   attr_accessor :users, :articles, :sessions
   def initialize
     puts "Hello Import"
-    # import_users
+    import_users
     import_articles
-    import_sessions
+    # import_sessions
   end
 
   def import_users

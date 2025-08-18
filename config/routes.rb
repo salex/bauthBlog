@@ -10,9 +10,8 @@ Rails.application.routes.draw do
       get "wanda"
     end
     namespace :articles do
-      resources :viewer, only: [:index, :show] 
+      resources :viewer, only: [ :index, :show ]
     end
-
   end
 
   # semi private links
@@ -36,7 +35,7 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  get "login", to: "sessions#new" 
+  get "login", to: "sessions#new"
 
   get "dashboard", to: "dashboard#show"
   get "db", to: "dashboard#show"
@@ -46,5 +45,4 @@ Rails.application.routes.draw do
   # get "home", to: "blog#index"
   root "blog#index"
   get "*path", to: "blog#index"
-
 end

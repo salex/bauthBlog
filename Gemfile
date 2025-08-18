@@ -68,4 +68,3 @@ end
 
 gem "slim-rails"
 # rsync -av --delete -e ssh /Users/salex/work/rails8/bauth ror@192.168.0.128:/home/ror/apps/development/bauth
- 
