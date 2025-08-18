@@ -1,11 +1,11 @@
 div.grid.grid-cols-12.gap-0
   div.col-span-3 = render partial: "layouts/sidebar"
   div.col-span-9.bg-white.min-height-90vh.p-2
-    - if flash[:alert]
-      div.flex.gap-16.p-1
-        = tag.div(flash[:alert], style: "color:red",class:"font-bold text-xl") 
-        div
-          = button_to icon('fa fa-sign-in',"SignIn"), new_session_path, class:" inline-block text-white btn-sqr-blue text-white p-1 float-right"
+    / - if flash[:alert]
+    /   div.flex.gap-16.p-1
+    /     = tag.div(flash[:alert], style: "color:red",class:"font-bold text-xl") 
+    /     div
+    /       = button_to icon('fa fa-sign-in',"SignIn"), new_session_path, class:" inline-block text-white btn-sqr-blue text-white p-1 float-right"
 
     .marked
       /[style="min-height:90vh;"]

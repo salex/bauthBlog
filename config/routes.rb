@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 
   get "blog", to: "blog#index"
 
-  get "home", to: "blog#index"
+  # get "home", to: "blog#index"
   root "blog#index"
   get "*path", to: "blog#index"
 
