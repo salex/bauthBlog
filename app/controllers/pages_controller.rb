@@ -8,9 +8,9 @@ class PagesController < ApplicationController
     if valid_page?
       set_wanda if params[:page].include?("wanda")
       if params[:page].include?("laura")
-        render template: "pages/#{params[:page]}", layout: "laura"
+        render template: "pages/#{ params[:page] }", layout: "laura"
       else
-        render template: "pages/#{params[:page]}", layout: "wanda"
+        render template: "pages/#{ params[:page] }", layout: "wanda"
       end
     else
       # render file: "public/404.html", status: :not_found
