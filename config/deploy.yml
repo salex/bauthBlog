@@ -1,8 +1,8 @@
 # Name of your application. Used to uniquely configure containers.
-service: blog
+service: bauthBlog
 
 # Name of the container image.
-image: salex1710/blog
+image: salex1710/bauthBlog
 
 # Deploy to these servers.
 servers:
