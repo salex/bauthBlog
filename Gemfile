@@ -67,4 +67,6 @@ group :test do
 end
 
 gem "slim-rails"
+gem 'dotenv-rails', groups: [:development, :test]
+
 # rsync -av --delete -e ssh /Users/salex/work/rails8/bauth ror@192.168.0.128:/home/ror/apps/development/bauth

@@ -30,9 +30,9 @@
         div.px-4.hover:bg-white.hover:text-black = link_to "Dashboard", dashboard_path
         div.px-4.hover:bg-white.hover:text-black = link_to "Users", users_path
         div.px-4.hover:bg-white.hover:text-black = link_to "Articles", articles_path
-        div.px-4.hover:bg-white.hover:text-black = link_to "Home", root_path
+        div.px-4.hover:bg-white.hover:text-black = link_to "Home", blog_path
       - else
-        div.px-4.hover:bg-white.hover:text-black = link_to "Home", root_path
+        div.px-4.hover:bg-white.hover:text-black = link_to "Home", blog_path
 
       div
         - flash.each do |name, msg|
