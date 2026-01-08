@@ -7,9 +7,9 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 
 # Load .env file in development and test environments
-if Rails.env.development? || Rails.env.test?
-  Dotenv::Rails.load
-end
+# if Rails.env.development? || Rails.env.test?
+#   Dotenv::Rails.load
+# end
 
 module Bauth
   class Application < Rails::Application
